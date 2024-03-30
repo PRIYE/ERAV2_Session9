@@ -37,9 +37,7 @@ class Dilated_Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(0.1),
-
         )
-
         # Block 3
         self.conv3 = nn.Sequential(
             nn.Conv2d(64, 64, 3, stride=1, padding=1, bias=False), #30>>30 | 15>>23 | 4>>4
@@ -54,8 +52,6 @@ class Dilated_Net(nn.Module):
             nn.ReLU(),
             nn.BatchNorm2d(64),
             nn.Dropout(0.1),
-
-
         )
         # Block 4
         self.conv4 = nn.Sequential(
@@ -66,37 +62,20 @@ class Dilated_Net(nn.Module):
             nn.Conv2d(96, 128, 1, stride=1, padding=1, bias=False), #38>>40 | 47>>47 | 8>>8
             nn.ReLU(),
             nn.BatchNorm2d(128),
-            #nn.Dropout(0.1),
-
         )
-
         self.fc = nn.Sequential(
             nn.Conv2d(128, 10, 1, stride=1, padding=0, bias=False), 
-            #nn.ReLU(),
-            #nn.BatchNorm2d(1),
-            #nn.Dropout(0.05),
-            #nn.Linear(10, 10)
-
         )
         self.gap = nn.Sequential(
             #nn.AvgPool2d(kernel_size=16)
             nn.AdaptiveAvgPool2d((1, 1))
         )
-
-
     def forward(self, x):
         x = self.conv1(x)
         x = self.conv2(x)
         x = self.conv3(x)
         x = self.conv4(x)
-
-
-        #x = x.view(x.size(0), -1)
-
         x = self.gap(x)
         x = self.fc(x)
-        #x = self.gpool(x)
         x = x.view(-1, 10)
-        #x = F.relu(self.fc1(x))
-        #x = self.fc2(x)
         return F.log_softmax(x, dim=-1)
