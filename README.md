@@ -17,11 +17,10 @@
 1. Total Paramters : 190,608
 2. Used Dilated Convolution at end of C1, C2 and C3 block
 3. Used Depthwise Separable Convolution at C2, C3 and C4
-4. Used following augumentation from Albumentation library
-   * HorizontalFlip
-   * ShiftScaleRotate
-   * CoarseDropout
-   * ColorJitter
+   
+## Image Augumentation using Albumentation library
+![image](https://github.com/PRIYE/ERAV2_Session9/assets/7592375/f5ef7248-78a7-4f99-a2d4-3446b4be22f7)
+
 
 ## Result
 ![image](https://github.com/PRIYE/ERAV2_Session9/assets/7592375/34356cb4-2704-46c0-b78f-e11477ed01c7)
