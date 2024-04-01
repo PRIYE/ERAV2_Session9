@@ -62,13 +62,11 @@ class Dilated_Net(nn.Module):
             nn.Conv2d(96, 128, 1, stride=1, padding=1, bias=False), #8>>10 | 45>>45 | 8>>8
             nn.ReLU(),
             nn.BatchNorm2d(128),
-            #nn.Dropout(0.1),
         )
         self.fc = nn.Sequential(
             nn.Conv2d(128, 10, 1, stride=1, padding=0, bias=False), 
         )
         self.gap = nn.Sequential(
-            #nn.AvgPool2d(kernel_size=16)
             nn.AdaptiveAvgPool2d((1, 1))
         )
     def forward(self, x):
