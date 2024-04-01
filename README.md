@@ -12,11 +12,12 @@
 8. achieve 85% accuracy with total params to be less than 200k
 
 ## Model Architecture
-![image](https://github.com/PRIYE/ERAV2_Session9/assets/7592375/400c4ede-74d6-448f-b5e4-a8004ad1fa40)
+![image](https://github.com/PRIYE/ERAV2_Session9/assets/7592375/4d738c87-6307-4392-8f18-f988be5af4a9)
 
-1. Total Paramters : 190,608
+1. Total Paramters : 191,760
 2. Used Dilated Convolution at end of C1, C2 and C3 block
 3. Used Depthwise Separable Convolution at C2, C3 and C4
+4. Took 55 iterations to reach 85% accuracy.
    
 ## Image Augumentation using Albumentation library
 ![image](https://github.com/PRIYE/ERAV2_Session9/assets/7592375/f5ef7248-78a7-4f99-a2d4-3446b4be22f7)
